@@ -1,0 +1,270 @@
+1. npm i express colours
+2. npm i nodemon
+3. npm i dotenv
+4. npm i morgan - HTTP request logger middleware for node.js
+5. npm i mongoose - to access mongodb database
+6. npm i bcrypt
+7. npm i jsonwebtoken
+
+
+_____________ search for  npm _____________
+
+1. bycrypt- to hash the password
+
+2.  after installing the axios in the client 
+
+    npm i concurrently -  in execute two files
+
+    By default, browsers implement a security policy called Same-Origin Policy, which blocks requests from one origin (e.g., http://localhost:3000) to another origin (e.g., http://localhost:5000).
+
+    So if your frontend (React app on port 3000) tries to call your Node.js/Express backend (port 5000), the browser will block it unless CORS is enabled on the server.
+
+4. use this in packages.js - "client": "npm start",
+3. use this command in package.json - "dev": "concurrently \"command1 arg\" \"command2 arg\""
+
+    "server": "nodemon server.js",
+    "client": "npm start --prefix ./client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+
+5. fter these all check - npm run client
+
+6. run npm dev -  to run both cleint and server concurrently
+
+7. now in Register page on handlesubmit use try catch
+8. import axios - and ujse in it as post Request for register
+
+    await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/register`,{ name, email, password, phone, address }
+
+9. if after trying to register if we get error for env file as undefined use proxy in package.json in client    
+    proxy: http://localhost:8080,
+
+    instread of this await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/register`,{ name, email, password, phone, address }
+    use this await axios.post(`/api/v1/auth/register`,{ name, email, password, phone, address }
+    
+10. same for login page also
+
+11. menu bar showing 
+
+    a. if user loggedin - show as logout, no register
+    b. if user not logged in show login, register
+
+
+    for achieve this we can use context api or redux toolkit
+
+        = it is used to pass the state in multiple component
+        = state can b managed globalyy
+        = no prop drilling\
+
+        1. after creating Authprovide import it in index.js
+        2. after this check in home page by iumporting useAuth
+
+        1. after verfying import it in login page as useAuth
+        2. after this set it in localstoarge
+        3. go in authcontext set setAuth from local storage
+
+4. go in header and set login register if not login else logout if loggedIn
+
+5. after this under pages > users < Dashboard.js created
+6. route create as user-auth
+7.  in componens > Routes > private.js
+8. int this we craeted one protected roiute /user-auth"
+9. checking the user is logged in or not
+
+10. after thgis app.js we are created private router and inside it  dashboard.js
+
+11. tested it also when spinner hits, it means the user in not logged in
+12. so we need to navigate to login page after some seconds showing spinner
+13. to achieve this we can modify the spinner and adding timer and navigator to login page
+
+13. nmow we use (((( useLocation ))) hook to redirect user to dashboard page after login\
+
+    = if we want to access the dshbord page, it redirect to login page it user not logged in\\
+    = previously if user logs in its redirects to homapage\
+    = but user want to access the dashboard page after login so we use ((( useLocation hook )))
+    = The useLocation hook from React Router gives you access to the current location object, which contains information about the current URL in your app.
+
+    == in spinner.js import useLocation hook
+    == after that go in login.js and checkes conditionally also add uselocation 
+    == 
+
+14. Forgot password
+
+    = change in the userModel.js - question
+    = createa route - authRoute.js - '/forgot-password'
+    = controler - authController.js - forgotPasswordController
+
+    = after creating controller we will this route in front-End
+    == in registeration page added field as answer, setAnswer - passed in axios as answer
+
+15. after that we created forgotPassword.js
+
+16. created menu for logout and dashbord on header.js
+
+
+
+
+++++++++++++++++++++++ Admin dashborad ++++++++++++++++++++++++++++++++++++++
+
+
+
+17. now we created dashboard pages for Admin and user pages/Admin/ AdminDashboard.js
+
+        = we crteated protected Route for Admin - 
+
+        // protected route - Admin private.js
+            authrouter.get("/admin-auth", requireSignIn, isAdmin, (req, res) => {
+            res.status(200).send({ ok: true });
+            });
+
+        = created admin.js - component/routes/admin.js
+        = modiied app.js
+        = in header.js conditionally checking and redirecting
+
+        = in spinner.js we will modify - like if user wants to access the admin dashborad it will redirects to homapge ok
+            navigate(`/${path}`, {
+
+            in adminRoute in spinner path=""
+
+
+        19 created reusable component/layout/adminMenu.js
+        20. imported in AdminDashboard.js
+        21. crated Createcategory.js pages/Admm/Createcategory.js 
+        21. crated CreateProduct.js pages/Admm/CreateProduct.js 
+        22. created route inm App.js for both inside Admin route
+        21. crated Users.js pages/Admm/Users.js 
+
+        23. created userMenu.js in layouts
+
+
++++++++++++++++++ Admin category Crud operation ++++++++++++++++++++++
+
+            24 . crerated new model for Category and products
+            25. npm i slugify
+
+            26. cretaed route for the same categoryRoutes.js
+            27. created categoryController.js
+
+            28. created import categoryRoutes in server.js
+
+                after this test usimng postman by loggin in using admin in  postman and get a token fromthere and check
+
+            1. create-category route
+                create-category - http://localhost:8080/api/v1/category/create-category
+
+            2. uodate-category route
+                update category - http://localhost:8080/api/v1/category/update-category/682b7167088162bf9c0ce6b8  - id
+
+            3. category controler route
+                categories - http://localhost:8080/api/v1/category/categories
+
+            4. single category route
+                single-category - http://localhost:8080/api/v1/category/single-category/682b7167088162bf9c0ce6b8  - slug id
+
+            5. delete category route
+                delete-category - http://localhost:8080/api/v1/category/delete-category/682b7180088162bf9c0ce6bc  -  id
+
+
++++++++++++++++++ Admin products  operation ++++++++++++++++++++++
+
+    1. ctreated model - productModel.js
+    2. proctController
+    3. productRoute
+
+    npm i express-formidable - to upload any files simply
+
+
+    1. createProductController -post( http://localhost:8080/api/v1/product//create-product)
+
+        ==== npm install express mongoose slugify dotenv cloudinary express-formidable
+
+        created cloudinary file
+        logged in inti cloudinary - CLOUDINARY_URL=cloudinary://<your_api_key>:<your_api_secret>@instaclonea
+            
+            1. login with admin - get a token - 
+
+                    header - Autherisation - token
+                    body - formData - name - BT watch
+                                      description - modern design watch
+                                      price - 10
+                                      quantity - 1
+                                      category - ctaegory-id - 682b7167088162bf9c0ce6b8
+                                      photo(file) - select photo
+
+
+
+    2. getProductController - get(http://localhost:8080/api/v1/product/get-product)
+
+    3. getSingleProductControler - get(http://localhost:8080/api/v1/product/get-product/Noise-watch- getting fromproduct slug)
+
+    4. productPhotoController - get(http://localhost:8080/api/v1/product/product-photo/682c930d806ca3d67f1f77e5) - product Id
+
+    5. deleteProductController - delete(http://localhost:8080/api/v1/product/delete/682c942bd2561a3d22e600b7) - product Id
+
+    6. updateProductController  - put(http://localhost:8080/api/v1/product/update-product/682c930d806ca3d67f1f77e5)
+
+
+============= Working on Admin Panel in Frontend ================
+
+    1. Display the categories - 
+            in createCategory.js created a function
+            1. created ReUsable categoryForm.js in components/form/categoryForm.js
+            2. imported categoryForm.js in createCategory.js
+
+            3. installed "" npm install react-bootstrap bootstrap "" for popup for editng the category
+
+    2. create Product - 
+            1. createProduct.js 
+                    1. create 
+                    2. 
+
+            2. pages/admin//Product.js - to display all products
+
+            3. pages/admin/updateProduct.js to update product - delete and update
+
+============== working with homepage in frontend and backend =====================
+
+    1. Displaying all the products
+    2. displaying all the categoaries availabel
+    3. in components created prices.js    -   for price filters
+
+    4, in backend productRoutes.js - created route
+    5. in productController.js  created productFilterController
+
+    6. after thgis created fuction for get all filtered prdiuct in homepoge.js
+
+
+==============  working with search bar globaly ===========================
+
+    1. creater route in productRoute.js as  ====  search Route
+    2. created function as searchProductController in productControler.js
+
+    3. created search.js in authcointext.js
+    4. created searchInput.js for input search - and imported this component in header.js
+
+    5. used this searchInput.js values in hoempage.js using search context.js
+
+
+============== working on Hemapge.js for more detetails page for per products =================
+
+    1. created ProductDetails.js in pages
+
+    2. also route is same as Single product and getSingleProductController
+    3. for getting similar products we crfeated rouite and controller
+
+
+============= working with cart =========================
+
+    1. ceated context for cart as cartContext.js
+
+    2. created the page for cart as Cart.js
+    3. in App.js imported CartPage.js
+
+    4. imported useCart in Homepage.js used on Add to cart button
+    5. also in header.js imported useCart to get the cart item count to show on cart button
+
+
+=========== working on user order ================
+
+    1. created route inside AuthRouter getOrdersController.js
+
+    2. created pages/user/Order.js in 
