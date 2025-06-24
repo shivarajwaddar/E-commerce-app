@@ -1,0 +1,153 @@
+/* HomePageResponsive.css */
+
+/* Default (≥1024px): 5 columns */
+.product-col {
+  flex: 0 0 20%;
+  max-width: 20%;
+}
+
+/* 768px–1023px: 4 columns */
+@media (max-width: 1023px) {
+  .product-col {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+}
+
+/* 480px–767px: 3 columns */
+@media (max-width: 767px) {
+  .product-col {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+  }
+}
+
+/* ≤479px (including 320px): 2 columns */
+@media (max-width: 479px) {
+  .product-col {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+/* Center filter sidebar and header for ≤1023px */
+@media (max-width: 1023px) {
+  .filter-sidebar {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .sticky-filter-wrapper {
+    position: static !important;
+  }
+
+  .filter-sidebar .category-filter-list,
+  .filter-sidebar .price-filter-list {
+    align-items: center;
+  }
+
+  .filter-sidebar h4 {
+    text-align: center;
+  }
+
+  .filter-sidebar button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* ====================
+   Responsive Product Grid
+==================== */
+
+.product-grid {
+  display: grid;
+  gap: 1.5rem;
+  /* Default 5 columns (≥1024px) */
+  grid-template-columns: repeat(5, 1fr);
+}
+
+/* 768px - 1023px: 4 columns */
+@media (max-width: 1023px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* 480px - 767px: 3 columns */
+@media (max-width: 767px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .filter-sidebar {
+    order: -1;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .sticky-filter-wrapper {
+    position: relative !important;
+  }
+}
+
+/* ≤ 479px: 2 columns */
+@media (max-width: 479px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .filter-sidebar {
+    order: -1;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .sticky-filter-wrapper {
+    position: relative !important;
+  }
+}
+
+/* ====================
+   Equal Card Heights
+==================== */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-text {
+  min-height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Hover effect for cards */
+.card:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Button animation on hover */
+.transition-transform {
+  transition: transform 0.2s ease-in-out;
+}
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}

@@ -1,0 +1,239 @@
+/* General Layout & Page Structure */
+.cart-page {
+  padding: 00px 0; /* More vertical padding */
+  background-color: #f8f9fa; /* Light background for the page */
+  min-height: calc(
+    100vh - 120px
+  ); /* Adjust based on your header/footer height */
+}
+
+.cart-page .container {
+  max-width: 1200px; /* Max width for content */
+}
+
+/* Cart Header Section */
+.cart-header-row .col-md-12 {
+  background-color: #ffffff;
+  border-radius: 10px; /* Slightly rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Softer shadow */
+  padding: 00px 20px;
+}
+
+.cart-header-row h1 {
+  color: #343a40; /* Darker text for heading */
+  font-size: 2rem; /* Larger heading */
+  margin-bottom: 10px;
+}
+
+.cart-header-row p.lead {
+  color: #6c757d; /* Muted text for description */
+  font-size: 1.3rem;
+}
+
+.cart-header-row .text-danger {
+  font-size: 0.95rem; /* Smaller, focused text */
+}
+
+/* Cart Items List */
+.cart-items-list {
+  padding-right: 20px; /* Spacing between list and summary */
+}
+
+/* Individual Cart Item Card */
+.cart-item-card {
+  border: none; /* Remove default card border */
+  border-radius: 10px;
+  overflow: hidden; /* Ensures image corners are rounded with card */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  background-color: #ffffff; /* White background */
+}
+
+.cart-item-card:hover {
+  transform: translateY(-3px); /* Subtle lift effect on hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item-image-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f2f2f2; /* Light background for image area */
+  padding: 10px; /* Padding around image */
+}
+
+.cart-item-img {
+  width: 100%;
+  height: 120px; /* Fixed height for consistency */
+  object-fit: contain; /* Ensures entire image is visible, not cropped */
+  border-radius: 8px; /* Slightly rounded image corners */
+}
+
+.cart-item-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 20px; /* Left padding for text */
+}
+
+.cart-item-name {
+  font-size: 1.25rem; /* Larger product name */
+  font-weight: 600;
+  color: #343a40;
+  margin-bottom: 5px;
+}
+
+.cart-item-description {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #888;
+}
+
+.cart-item-price {
+  font-size: 1.15rem;
+  color: #28a745; /* Success green for price */
+}
+
+.cart-item-quantity {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.cart-remove-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px; /* Padding for the button column */
+}
+
+.cart-remove-btn .btn-sm {
+  min-width: 90px; /* Ensure button has minimum width */
+  font-size: 0.9rem;
+  padding: 8px 12px;
+}
+
+/* Spinner for removing state */
+.cart-remove-btn .spinner-border-sm {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-width: 0.15em;
+}
+
+/* Cart Summary Panel */
+.cart-summary-panel {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  /* padding: 30px; */
+  position: sticky; /* Makes it stick when scrolling */
+  /* Distance from top of viewport */
+}
+
+.cart-summary-panel h2 {
+  color: #343a40;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.cart-summary-panel p.text-muted {
+  font-size: 0.9rem;
+}
+
+.cart-summary-panel .total-amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #007bff; /* Primary blue for total */
+}
+
+.cart-summary-panel .btn-outline-info,
+.cart-summary-panel .btn-warning,
+.cart-summary-panel .btn-success {
+  margin-top: 10px; /* Spacing between address and button */
+  font-weight: 500;
+}
+
+.cart-summary-panel .payment-section {
+  margin-top: 30px;
+}
+
+.cart-summary-panel .payment-section h5 {
+  color: #495057;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/* Empty Cart State */
+.cart-page .text-center.my-5 {
+  border: 2px dashed #e0e0e0;
+  border-radius: 10px;
+  background-color: #fefefe;
+  padding: 50px;
+}
+
+.cart-page .text-center.my-5 p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+  .cart-page {
+    padding: 20px 0;
+  }
+
+  .cart-header-row h1 {
+    font-size: 2rem;
+  }
+
+  .cart-item-card {
+    flex-direction: column; /* Stack image and details on small screens */
+    text-align: center;
+  }
+
+  .cart-item-image-col {
+    padding-bottom: 0;
+    border-bottom: 1px solid #eee; /* Separator on small screens */
+  }
+
+  .cart-item-img {
+    height: 150px; /* Taller image for small screens */
+    max-width: 80%; /* Constrain image width */
+  }
+
+  .cart-item-details {
+    padding: 15px;
+    align-items: center; /* Center text details */
+  }
+
+  .cart-item-name {
+    font-size: 1.15rem;
+  }
+
+  .cart-item-description {
+    display: none; /* Hide description on very small screens */
+  }
+
+  .cart-item-price,
+  .cart-item-quantity {
+    font-size: 1rem;
+  }
+
+  .cart-remove-btn {
+    padding: 10px;
+    border-top: 1px solid #eee; /* Separator for button */
+  }
+
+  .cart-remove-btn .btn-sm {
+    width: 100%; /* Full width button on small screens */
+  }
+
+  .cart-items-list {
+    padding-right: 0; /* No right padding on small screens */
+  }
+
+  .cart-summary-panel {
+    margin-top: 30px; /* Add margin when stacked below items */
+    position: static; /* Remove sticky behavior on small screens */
+    top: auto;
+  }
+}

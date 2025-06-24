@@ -1,0 +1,17 @@
+1. include bootrap
+   
+    - go in the bootrsap copy the links
+    - past on public/index.html
+    - terminal - npm install bootstrap
+
+2. npm i react-router-dom
+3. npm install react-icons
+
+4. npm i axios - get, post, modify data
+5. npm i react-toastify - used in layout and register, signin
+
+====== after axios =========
+
+1. if we register we need to send the data to server
+2. the port of client and server are diffrent
+2. so we need to create .env file
